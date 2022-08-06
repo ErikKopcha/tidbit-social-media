@@ -1,8 +1,14 @@
-import type { AppProps } from 'next/app'
-import '../styles/globals.css'
-import { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar'
+import type { AppProps } from 'next/app';
+import { useEffect, useState } from 'react';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+
+import '../assets/styles/globals.css'
+import {
+  SidebarWrap,
+  Container,
+  ComponentWrap
+} from './_app.styled';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(false);
@@ -16,14 +22,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <div>
       <Navbar />
-      <div className='flex gap-6 md:gap-20'>
-        <div className='h-[92vh] overflow-hidden xl:hover:overflow-auto'>
+
+      <Container>
+        <SidebarWrap>
           <Sidebar />
-        </div>
-        <div className='mt-4 flex flex-col gap-10 overflow-auto h-[88vh] videos flex-1'>
+        </SidebarWrap>
+        <ComponentWrap>
           <Component {...pageProps} />
-        </div>
-      </div>
+        </ComponentWrap>
+      </Container>
     </div>
   )
 }
