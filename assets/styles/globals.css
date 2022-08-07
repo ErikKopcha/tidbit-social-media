@@ -3,10 +3,17 @@
 @import "normalize.css";
 @import "root.css";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
+  font-size: 16px;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -15,12 +22,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  transition: all 0.4s ease;
 }
 
 .videos::-webkit-scrollbar {
@@ -52,4 +54,5 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
+  transition: all 0.4s ease;
 }
