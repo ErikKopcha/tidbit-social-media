@@ -5,11 +5,17 @@ import { GoogleLogin } from 'react-google-login';
 import { AiFillHome, AiOutlineMenu } from 'react-icons/ai';
 import { ImCancelCircle } from 'react-icons/im';
 import { useState } from 'react'
+import Discover from '../Discover'
+import SuggestedAccounts from '../SuggestedAccounts'
+import Footer from '../Footer'
+
 import {
-  ButtonToggleSidebar,
   SidebarContent,
+  ButtonToggleSidebar,
   SidebarNavigation,
-  NormalizeLink
+  NormalizeLink,
+  LogInWrap,
+  ButtonGoogleLogin
 } from './Sidebar.styled';
 
 const Sidebar = (): JSX.Element => {
@@ -36,30 +42,30 @@ const Sidebar = (): JSX.Element => {
           </SidebarNavigation>
 
           {!userProfile && (
-            <div className="px-2 py-4 hidden xl:block">
-              <p className="text-gray-400">Log in to like and comment videos</p>
-              <div className="pr-4">
+            <LogInWrap>
+              <p>Log in to like and comment videos</p>
+              <div>
                 <GoogleLogin
                   clientId=""
                   render={(renderProps) => (
-                    <button
-                      className="bg-white text-lg text-[#F51997] border-[1px]
-                      border-[#F51997] font-semibold px-6 py-3 rounded-md
-                      outline-none w-full mt-3 hover:text-white hover:bg-[#F51997]"
+                    <ButtonGoogleLogin
                       onClick={renderProps.onClick}
                       disabled={renderProps.disabled}
                     >
                       Log In
-                    </button>
+                    </ButtonGoogleLogin>
                   )}
                   onSuccess={() => {}}
                   onFailure={() => {}}
                   cookiePolicy="single_host_origin"
                 />
               </div>
-            </div>
+            </LogInWrap>
           )}
 
+          <Discover />
+          <SuggestedAccounts />
+          <Footer />
         </SidebarContent>
       )}
     </div>
