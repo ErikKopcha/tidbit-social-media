@@ -9,7 +9,7 @@ export const SidebarContent = styled.div`
   padding: 10px;
   width: 100%;
   max-width: 300px;
-  border-right: 2px solid var(--mercury);
+  // border-right: 1px solid var(--mercury);
 `;
 
 export const ButtonToggleSidebar = styled.button`
