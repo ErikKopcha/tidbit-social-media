@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.vox-cdn.com']
+    domains: [
+      'cdn.vox-cdn.com',
+      'yt3.ggpht.com',
+      'lh3.googleusercontent.com'
+    ]
   },
   swcMinify: true,
   compiler: {
