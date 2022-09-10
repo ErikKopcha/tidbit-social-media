@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 
@@ -20,7 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   if (isSSR) return null;
 
   return (
-    <div>
+    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
       <Navbar />
 
       <Container>
@@ -31,7 +32,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <Component {...pageProps} />
         </ComponentWrap>
       </Container>
-    </div>
+    </GoogleOAuthProvider>
   )
 }
 
