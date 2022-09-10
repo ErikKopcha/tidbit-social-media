@@ -15,7 +15,7 @@ const VideoCard: NextPage<IProps> = ({ post }): JSX.Element => {
   const autoplay = true;
 
   const [isHover, setIsHover] = useState(false);
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(autoplay);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
 
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -48,15 +48,15 @@ const VideoCard: NextPage<IProps> = ({ post }): JSX.Element => {
         </div>
         <div>
           <Link href="/">
-            <div className="flex items-center gap-2">
-              <p className="flex items-center gap-2 font-bold md:text-md text-primary">
+            <div className="flex items-center">
+              <p className="flex items-center gap-1 font-bold md:text-md text-primary">
                 {post.postedBy.userName}
                 &nbsp;
                 <GoVerified className="text-blue-400 text-md" />
               </p>
-              <p className="capitalize text-xs text-gray-500 hidden md:block">
-                {post.postedBy.userName}
-              </p>
+              {/*<p className="capitalize text-xs text-gray-500 hidden md:block">*/}
+              {/*  {post.postedBy.userName}*/}
+              {/*</p>*/}
             </div>
           </Link>
         </div>
@@ -75,6 +75,7 @@ const VideoCard: NextPage<IProps> = ({ post }): JSX.Element => {
               loop
               autoPlay={autoplay}
               src={post.video.asset.url}
+              onClick={onVideoPress}
             ></video>
           </Link>
 
