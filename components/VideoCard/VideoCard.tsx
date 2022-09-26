@@ -48,7 +48,7 @@ const VideoCard: NextPage<IProps> = ({ post }): JSX.Element => {
         </div>
         <div>
           <Link href="/">
-            <div className="flex items-center">
+            <div className="flex items-center flex-col">
               <p className="flex items-center gap-1 font-bold md:text-md text-primary">
                 {post.postedBy.userName}
                 &nbsp;
@@ -66,8 +66,8 @@ const VideoCard: NextPage<IProps> = ({ post }): JSX.Element => {
         <div
           onMouseEnter={() => { setIsHover(true) }}
           onMouseLeave={() => { setIsHover(false) }}
-          className="rounded-3xl">
-          <Link href="/">
+          className="rounded-3xl relative">
+          <Link href={`/detail/${post._id}`}>
             <video
               muted={isVideoMuted}
               ref={videoRef}
@@ -75,12 +75,12 @@ const VideoCard: NextPage<IProps> = ({ post }): JSX.Element => {
               loop
               autoPlay={autoplay}
               src={post.video.asset.url}
-              onClick={onVideoPress}
+              // onClick={onVideoPress}
             ></video>
           </Link>
 
           {isHover && (
-            <div className="absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100-px] md:w-[50px] p-3">
+            <div className="absolute bottom-0 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 w-[100%] lg:justify-between p-3 bg-gray-100 rounded-3xl">
               {playing ? (
                 <button onClick={onVideoPress}>
                   <BsFillPauseFill className="text-black text-2xl lg:text-4xl" />
