@@ -6,12 +6,17 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+
   switch (req.method) {
     case "GET":
       const query = allPostsQuery();
       const data = await client.fetch(query);
 
       res.status(200).json(data);
+
+      break;
+    case "POST":
+      client.create(req.body).then(() => res.status(201).json('Video created'))
 
       break;
   }
