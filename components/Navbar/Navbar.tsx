@@ -52,8 +52,8 @@ const Navbar = () => {
           />
           <button
             type="submit"
-            style={{ borderLeft: '2px solid' }}
-            className="absolute md:right-5 right-6 top-4 border-gray-300 pl-2 text-2xl text-gray-400"
+            style={{ borderLeft: '2px solid', top: '50%', transform: 'translateY(-48%)' }}
+            className="absolute md:right-5 right-6 border-gray-300 pl-2 text-2xl text-gray-400"
           >
             <BiSearch />
           </button>
