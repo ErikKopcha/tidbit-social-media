@@ -22,16 +22,18 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
-      <Navbar />
+      <div className="xl:w-[1200px] m-auto overflow-hidden h-[100vh]">
+        <Navbar />
 
-      <Container>
-        <SidebarWrap>
-          <Sidebar />
-        </SidebarWrap>
-        <ComponentWrap>
-          <Component {...pageProps} />
-        </ComponentWrap>
-      </Container>
+        <Container>
+          <SidebarWrap>
+            <Sidebar />
+          </SidebarWrap>
+          <ComponentWrap>
+            <Component {...pageProps} />
+          </ComponentWrap>
+        </Container>
+      </div>
     </GoogleOAuthProvider>
   )
 }
