@@ -72,6 +72,14 @@ const Upload = () => {
     }
   }
 
+  const discardHandler = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    setSavingPost(false);
+    setVideoAsset(undefined);
+    setCaption('');
+  }
+
   return (
     <div
       style={{ marginTop: '-20px' }}
@@ -167,7 +175,7 @@ const Upload = () => {
           <div className="flex gap-6 mt-10">
             <button
               disabled={savingPost}
-              onClick={() => {}}
+              onClick={discardHandler}
               type="button"
               style={{ border: '2px solid rgb(209, 213, 219)' }}
               className="text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
